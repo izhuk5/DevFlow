@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: ["class"],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,25 +10,32 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
         primary: {
-          100: '#FF7000',
-          500: '#FFF1E6'
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+          "100": "#FFF1E6",
+          "500": "#FF7000",
         },
         dark: {
-          100: '#000000',
-          200: '#0F1117',
-          300: '#151821',
-          400: '#212734',
-          500: '#3F4354'
+          "100": "#000000",
+          "200": "#0F1117",
+          "300": "#151821",
+          "400": "#212734",
+          "500": "#101012",
         },
         light: {
-          900: '#FFFFFF',
-          850: '#FDFDFD',
-          800: '#F4F6F8',
-          700: '#DCE3F1',
-          500: '#7B8EC8',
-          400: '#858EAD'
-        }
+          "400": "#858EAD",
+          "500": "#7B8EC8",
+          "700": "#DCE3F1",
+          "800": "#F4F6F8",
+          "850": "#FDFDFD",
+          "900": "#FFFFFF",
+        },
       },
       boxShadow: {
         "light-100":
@@ -38,14 +46,19 @@ const config: Config = {
         "dark-200": "2px 0px 20px 0px rgba(39, 36, 36, 0.04)",
       },
       screens: {
-        xs: '420px',
+        xs: "420px",
       },
       fontFamily: {
-        inter: ['var(--font-inter)'],
-        'space-grotesk': ['var(--font-space-grotesk)']
+        inter: ["var(--font-inter)"],
+        "space-grotesk": ["var(--font-space-grotesk)"],
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };
 export default config;
